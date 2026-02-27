@@ -36,60 +36,22 @@ export default function LoginPage() {
   };
 
   return (
-    <main
-      style={{
-        minHeight: "100vh",
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "center",
-        padding: "1.5rem",
-        background:
-          "radial-gradient(circle at top, #0f172a 0, #020617 40%, #000 100%)",
-        color: "#e5e7eb",
-        fontFamily:
-          "system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif"
-      }}
-    >
-      <div
-        style={{
-          width: "100%",
-          maxWidth: "380px",
-          padding: "1.75rem",
-          borderRadius: "1rem",
-          border: "1px solid rgba(148,163,184,0.6)",
-          background:
-            "linear-gradient(145deg, rgba(15,23,42,0.98), rgba(15,23,42,0.9))",
-          boxShadow: "0 20px 45px rgba(0,0,0,0.75)"
-        }}
-      >
-        <div style={{ marginBottom: "1.5rem", textAlign: "center" }}>
-          <h1
-            style={{
-              fontSize: "1.3rem",
-              fontWeight: 700,
-              marginBottom: "0.25rem",
-              color: "#f9fafb"
-            }}
-          >
+    <main className="flex min-h-screen items-center justify-center bg-[radial-gradient(circle_at_top,_#0f172a_0,_#020617_40%,_#000_100%)] px-4 text-gray-100">
+      <div className="w-full max-w-md rounded-2xl border border-slate-500/70 bg-slate-900/95 p-7 shadow-[0_20px_45px_rgba(0,0,0,0.85)] backdrop-blur">
+        <div className="mb-6 text-center">
+          <h1 className="text-xl font-semibold text-slate-50">
             Panel de clientes
           </h1>
-          <p style={{ fontSize: "0.8rem", color: "#9ca3af" }}>
+          <p className="mt-1 text-xs text-slate-400">
             Accedé a tu constructor de landing.
           </p>
         </div>
 
-        <form
-          onSubmit={handleSubmit}
-          style={{ display: "flex", flexDirection: "column", gap: "0.9rem" }}
-        >
-          <div style={{ display: "flex", flexDirection: "column", gap: "0.2rem" }}>
+        <form onSubmit={handleSubmit} className="flex flex-col gap-3.5">
+          <div className="space-y-1">
             <label
               htmlFor="username"
-              style={{
-                fontSize: "0.75rem",
-                fontWeight: 500,
-                color: "#e5e7eb"
-              }}
+              className="block text-xs font-medium text-slate-100"
             >
               Usuario
             </label>
@@ -100,27 +62,14 @@ export default function LoginPage() {
               value={username}
               onChange={(e) => setUsername(e.target.value)}
               placeholder="cliente1"
-              style={{
-                width: "100%",
-                borderRadius: "0.5rem",
-                border: "1px solid #4b5563",
-                backgroundColor: "#020617",
-                padding: "0.5rem 0.75rem",
-                fontSize: "0.85rem",
-                color: "#f9fafb",
-                outline: "none"
-              }}
+              className="w-full rounded-lg border border-slate-600 bg-slate-950/80 px-3 py-2 text-sm text-slate-50 outline-none ring-cyan-500/60 transition focus:ring-1"
             />
           </div>
 
-          <div style={{ display: "flex", flexDirection: "column", gap: "0.2rem" }}>
+          <div className="space-y-1">
             <label
               htmlFor="password"
-              style={{
-                fontSize: "0.75rem",
-                fontWeight: 500,
-                color: "#e5e7eb"
-              }}
+              className="block text-xs font-medium text-slate-100"
             >
               Contraseña
             </label>
@@ -131,61 +80,31 @@ export default function LoginPage() {
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               placeholder="••••"
-              style={{
-                width: "100%",
-                borderRadius: "0.5rem",
-                border: "1px solid #4b5563",
-                backgroundColor: "#020617",
-                padding: "0.5rem 0.75rem",
-                fontSize: "0.85rem",
-                color: "#f9fafb",
-                outline: "none"
-              }}
+              className="w-full rounded-lg border border-slate-600 bg-slate-950/80 px-3 py-2 text-sm text-slate-50 outline-none ring-cyan-500/60 transition focus:ring-1"
             />
           </div>
 
           {error && (
-            <p
-              style={{
-                fontSize: "0.75rem",
-                fontWeight: 500,
-                color: "#f97373"
-              }}
-            >
-              {error}
-            </p>
+            <p className="text-xs font-medium text-red-400">{error}</p>
           )}
 
           <button
             type="submit"
-            style={{
-              marginTop: "0.4rem",
-              width: "100%",
-              borderRadius: "0.6rem",
-              border: "none",
-              padding: "0.55rem 0.75rem",
-              fontSize: "0.9rem",
-              fontWeight: 600,
-              color: "#ffffff",
-              background:
-                "linear-gradient(135deg, #22d3ee 0%, #0ea5e9 50%, #0f766e 100%)",
-              boxShadow: "0 12px 30px rgba(56,189,248,0.45)",
-              cursor: "pointer"
-            }}
+            className="mt-1 inline-flex w-full items-center justify-center rounded-lg bg-gradient-to-r from-cyan-300 via-sky-400 to-emerald-500 px-4 py-2.5 text-sm font-semibold text-slate-950 shadow-[0_12px_30px_rgba(56,189,248,0.45)] transition hover:brightness-110 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950"
           >
             Ingresar
           </button>
 
-          <p
-            style={{
-              marginTop: "0.6rem",
-              fontSize: "0.7rem",
-              color: "#9ca3af"
-            }}
-          >
+          <p className="mt-2 text-[11px] text-slate-400">
             Mock de ejemplo:{" "}
-            <strong style={{ color: "#e5e7eb" }}>cliente1 / 1234</strong> o{" "}
-            <strong style={{ color: "#e5e7eb" }}>cliente2 / abcd</strong>.
+            <span className="font-semibold text-slate-100">
+              cliente1 / 1234
+            </span>{" "}
+            o{" "}
+            <span className="font-semibold text-slate-100">
+              cliente2 / abcd
+            </span>
+            .
           </p>
         </form>
       </div>

@@ -64,213 +64,73 @@ export default function DashboardPage() {
 
   if (loading || !config) {
     return (
-      <main
-        style={{
-          minHeight: "100vh",
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-          backgroundColor: "#020617",
-          color: "#e5e7eb",
-          fontFamily:
-            "system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif"
-        }}
-      >
-        <p style={{ fontSize: "0.9rem", color: "#cbd5f5" }}>
-          Cargando dashboard...
-        </p>
+      <main className="flex min-h-screen items-center justify-center bg-slate-950 text-slate-100">
+        <p className="text-sm text-slate-300">Cargando dashboard...</p>
       </main>
     );
   }
 
   return (
-    <main
-      style={{
-        minHeight: "100vh",
-        padding: "1.5rem 1.25rem",
-        background:
-          "radial-gradient(circle at top, #020617 0, #000 55%, #020617 100%)",
-        color: "#e5e7eb",
-        fontFamily:
-          "system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif"
-      }}
-    >
-      <div
-        style={{
-          maxWidth: "1120px",
-          margin: "0 auto",
-          display: "flex",
-          flexDirection: "column",
-          gap: "1.5rem"
-        }}
-      >
-        <header
-          style={{
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "space-between",
-            gap: "1rem"
-          }}
-        >
+    <main className="min-h-screen bg-[radial-gradient(circle_at_top,_#020617_0,_#000_55%,_#020617_100%)] px-4 py-4 text-slate-100 md:px-6 md:py-6">
+      <div className="mx-auto flex max-w-6xl flex-col gap-4 md:gap-6">
+        <header className="flex items-center justify-between gap-4">
           <div>
-            <h1
-              style={{
-                fontSize: "1.1rem",
-                fontWeight: 600,
-                color: "#f9fafb",
-                marginBottom: "0.2rem"
-              }}
-            >
+            <h1 className="text-lg font-semibold text-slate-50">
               Constructor de landing
             </h1>
-            <p style={{ fontSize: "0.75rem", color: "#9ca3af" }}>
+            <p className="text-xs text-slate-400">
               Plantilla fija · edición de contenido y colores.
             </p>
           </div>
-          <div
-            style={{
-              display: "flex",
-              alignItems: "center",
-              gap: "0.5rem",
-              fontSize: "0.75rem"
-            }}
-          >
+          <div className="flex items-center gap-3 text-xs">
             {username && (
-              <span
-                style={{
-                  borderRadius: "999px",
-                  padding: "0.25rem 0.9rem",
-                  backgroundColor: "rgba(15,23,42,0.85)",
-                  color: "#e5e7eb",
-                  border: "1px solid rgba(75,85,99,0.8)"
-                }}
-              >
-                Sesión:{" "}
-                <span style={{ fontWeight: 600 }}>{username}</span>
+              <span className="rounded-full border border-slate-600 bg-slate-900/80 px-3 py-1 text-slate-100">
+                Sesión: <span className="font-semibold">{username}</span>
               </span>
             )}
             <button
               type="button"
               onClick={handleLogout}
-              style={{
-                borderRadius: "0.5rem",
-                padding: "0.4rem 0.9rem",
-                border: "1px solid rgba(148,163,184,0.7)",
-                backgroundColor: "rgba(15,23,42,0.9)",
-                color: "#e5e7eb",
-                cursor: "pointer"
-              }}
+              className="rounded-md border border-slate-500 bg-slate-900/90 px-3 py-1.5 font-medium text-slate-100 transition hover:border-red-500 hover:bg-red-500/20 hover:text-red-100"
             >
               Cerrar sesión
             </button>
           </div>
         </header>
 
-        <section
-          style={{
-            display: "grid",
-            gridTemplateColumns: "minmax(0, 1.1fr) minmax(0, 0.9fr)",
-            gap: "1.25rem"
-          }}
-        >
-          <div style={{ display: "flex", flexDirection: "column", gap: "1rem" }}>
-            <div
-              style={{
-                borderRadius: "1rem",
-                padding: "1rem",
-                border: "1px solid rgba(31,41,55,1)",
-                backgroundColor: "rgba(15,23,42,0.95)",
-                maxHeight: "calc(100vh - 190px)",
-                overflowY: "auto"
-              }}
-            >
+        <section className="grid grid-cols-1 gap-4 lg:grid-cols-[1.1fr_0.9fr]">
+          <div className="space-y-4">
+            <div className="max-h-[calc(100vh-190px)] overflow-y-auto rounded-2xl border border-slate-800 bg-slate-950/95 p-4">
               <LandingEditorForm config={config} onChange={setConfig} />
             </div>
 
-            <div
-              style={{
-                display: "flex",
-                flexWrap: "wrap",
-                gap: "0.75rem",
-                borderRadius: "1rem",
-                padding: "0.75rem",
-                border: "1px solid rgba(31,41,55,1)",
-                backgroundColor: "rgba(15,23,42,0.95)"
-              }}
-            >
+            <div className="flex flex-wrap gap-3 rounded-2xl border border-slate-800 bg-slate-950/95 p-3">
               <button
                 type="button"
                 onClick={handleSave}
-                style={{
-                  flex: 1,
-                  borderRadius: "0.7rem",
-                  padding: "0.55rem 0.75rem",
-                  border: "none",
-                  fontSize: "0.85rem",
-                  fontWeight: 600,
-                  color: "#ffffff",
-                  background:
-                    "linear-gradient(135deg, #22d3ee 0%, #0ea5e9 60%, #0f766e 100%)",
-                  boxShadow: "0 12px 30px rgba(56,189,248,0.45)",
-                  cursor: "pointer"
-                }}
+                className="inline-flex flex-1 items-center justify-center rounded-xl bg-gradient-to-r from-cyan-300 via-sky-400 to-emerald-500 px-4 py-2 text-sm font-semibold text-slate-950 shadow-[0_12px_30px_rgba(56,189,248,0.45)] transition hover:brightness-110 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950"
               >
                 Guardar
               </button>
               <button
                 type="button"
                 onClick={handleReset}
-                style={{
-                  flex: 1,
-                  borderRadius: "0.7rem",
-                  padding: "0.55rem 0.75rem",
-                  border: "1px solid rgba(202,138,4,0.85)",
-                  backgroundColor: "rgba(23,23,23,0.9)",
-                  color: "#facc15",
-                  fontSize: "0.85rem",
-                  fontWeight: 500,
-                  cursor: "pointer"
-                }}
+                className="inline-flex flex-1 items-center justify-center rounded-xl border border-yellow-500/90 bg-zinc-900/90 px-4 py-2 text-sm font-medium text-yellow-300 transition hover:bg-yellow-500/5"
               >
                 Resetear
               </button>
               <button
                 type="button"
                 onClick={handleExport}
-                style={{
-                  flex: 1,
-                  borderRadius: "0.7rem",
-                  padding: "0.55rem 0.75rem",
-                  border: "1px solid rgba(34,197,94,0.9)",
-                  backgroundColor: "rgba(6,78,59,0.25)",
-                  color: "#bbf7d0",
-                  fontSize: "0.85rem",
-                  fontWeight: 500,
-                  cursor: "pointer"
-                }}
+                className="inline-flex flex-1 items-center justify-center rounded-xl border border-emerald-500/90 bg-emerald-900/20 px-4 py-2 text-sm font-medium text-emerald-200 transition hover:bg-emerald-500/10"
               >
                 Exportar JSON
               </button>
             </div>
           </div>
 
-          <div
-            style={{
-              borderRadius: "1.25rem",
-              padding: "0.9rem",
-              border: "1px solid rgba(31,41,55,1)",
-              backgroundColor: "rgba(15,23,42,0.96)"
-            }}
-          >
-            <h2
-              style={{
-                marginBottom: "0.6rem",
-                fontSize: "0.75rem",
-                letterSpacing: "0.12em",
-                textTransform: "uppercase",
-                color: "#9ca3af"
-              }}
-            >
+          <div className="rounded-2xl border border-slate-800 bg-slate-950/95 p-3 md:p-4">
+            <h2 className="mb-3 text-xs font-semibold uppercase tracking-[0.18em] text-slate-400">
               Preview en vivo
             </h2>
             <LandingPreview config={config} />

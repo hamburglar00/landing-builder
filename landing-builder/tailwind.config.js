@@ -7,7 +7,7 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        sans: ["system-ui", "-apple-system", "BlinkMacSystemFont", "BlinkMacSystemFont", "sans-serif"]
+        sans: ["system-ui", "-apple-system", "BlinkMacSystemFont", "sans-serif"]
       }
     }
   },
