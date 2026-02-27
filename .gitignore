@@ -8,3 +8,18 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 
+# Proyectos locales antiguos que no deben formar parte de este repo
+/AutoRedirection-ChatraceBottom/
+/AutoRedirection-Chiva77/
+/Chiva77-Landing1.0/
+/Chiva77-Landing1.25/
+/Chiva77-Landing1.5/
+/DonSocial32-Landing1.0-remote/
+/DonSocial32html-Landing1.0/
+/DuckLuck-Landing1.5-CRM/
+/Golden-Landing1.0/
+/Golden-Landing1.25/
+/Golden-Landing1.25-remote/
+/README-LANDINGS.md
+
+
