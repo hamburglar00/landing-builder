@@ -290,6 +290,57 @@ export const LandingEditorForm: React.FC<LandingEditorFormProps> = ({
           />
         </div>
       </section>
+
+      <section className="rounded-xl border border-gray-800 bg-gray-950/70 p-4 shadow-sm">
+        <h3 className="mb-3 text-sm font-semibold uppercase tracking-wide text-gray-300">
+          Tracking
+        </h3>
+        <div className="space-y-3">
+          <div className="space-y-1">
+            <label
+              htmlFor="pixelId"
+              className="block text-xs font-medium text-gray-200"
+            >
+              Pixel ID
+            </label>
+            <input
+              id="pixelId"
+              type="text"
+              value={config.pixelId ?? ""}
+              onChange={(e) => updateField("pixelId", e.target.value)}
+              placeholder="Ej: 123456789012345"
+              className="block w-full rounded-md border border-gray-700 bg-gray-900/70 px-2.5 py-1.5 text-xs text-gray-100 outline-none ring-cyan-500/60 focus:ring-1"
+            />
+          </div>
+
+          <div className="space-y-1">
+            <label
+              htmlFor="gerenciaIds"
+              className="block text-xs font-medium text-gray-200"
+            >
+              ID Gerencia (uno o varios)
+            </label>
+            <textarea
+              id="gerenciaIds"
+              rows={2}
+              value={(config.gerenciaIds ?? []).join(", ")}
+              onChange={(e) => {
+                const raw = e.target.value;
+                const ids = raw
+                  .split(/[,\n]/)
+                  .map((id) => id.trim())
+                  .filter((id) => id.length > 0);
+                updateField("gerenciaIds", ids);
+              }}
+              placeholder="Ej: G123, G456 (separados por coma o salto de línea)"
+              className="block w-full rounded-md border border-gray-700 bg-gray-900/70 px-2.5 py-1.5 text-xs text-gray-100 outline-none ring-cyan-500/60 focus:ring-1"
+            />
+            <p className="text-[11px] text-gray-400">
+              Podés cargar varios ID de gerencia separados por coma o en líneas distintas.
+            </p>
+          </div>
+        </div>
+      </section>
     </div>
   );
 };

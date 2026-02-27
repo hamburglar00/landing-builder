@@ -34,5 +34,7 @@ export interface LandingThemeConfig {
   ctaTextColor: ColorOption;
   ctaBackgroundColor: ColorOption;
   ctaGlowColor: ColorOption;
+  pixelId?: string;
+  gerenciaIds?: string[];
 }
 

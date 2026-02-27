@@ -51,7 +51,9 @@ export const DEFAULT_CONFIG: LandingThemeConfig = {
   backgroundMode: "single",
   backgroundImages: [],
   rotateEveryHours: 24,
-  logoUrl: ""
+  logoUrl: "",
+  pixelId: "",
+  gerenciaIds: []
 };
 
 export const createDefaultConfig = (): LandingThemeConfig => ({

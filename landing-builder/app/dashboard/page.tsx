@@ -28,7 +28,8 @@ export default function DashboardPage() {
     setUsername(session.username);
 
     const storedConfig = loadConfig(session.username);
-    setConfig(storedConfig ?? createDefaultConfig());
+    const base = createDefaultConfig();
+    setConfig(storedConfig ? { ...base, ...storedConfig } : base);
     setLoading(false);
   }, [router]);
 
