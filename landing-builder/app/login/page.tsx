@@ -36,22 +36,60 @@ export default function LoginPage() {
   };
 
   return (
-    <main className="flex min-h-screen items-center justify-center px-4">
-      <div className="w-full max-w-md rounded-2xl border border-gray-800 bg-gray-950/80 p-6 shadow-[0_0_40px_rgba(0,0,0,0.85)]">
-        <div className="mb-6 text-center">
-          <h1 className="text-xl font-semibold text-white">
+    <main
+      style={{
+        minHeight: "100vh",
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+        padding: "1.5rem",
+        background:
+          "radial-gradient(circle at top, #0f172a 0, #020617 40%, #000 100%)",
+        color: "#e5e7eb",
+        fontFamily:
+          "system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif"
+      }}
+    >
+      <div
+        style={{
+          width: "100%",
+          maxWidth: "380px",
+          padding: "1.75rem",
+          borderRadius: "1rem",
+          border: "1px solid rgba(148,163,184,0.6)",
+          background:
+            "linear-gradient(145deg, rgba(15,23,42,0.98), rgba(15,23,42,0.9))",
+          boxShadow: "0 20px 45px rgba(0,0,0,0.75)"
+        }}
+      >
+        <div style={{ marginBottom: "1.5rem", textAlign: "center" }}>
+          <h1
+            style={{
+              fontSize: "1.3rem",
+              fontWeight: 700,
+              marginBottom: "0.25rem",
+              color: "#f9fafb"
+            }}
+          >
             Panel de clientes
           </h1>
-          <p className="mt-1 text-xs text-gray-400">
+          <p style={{ fontSize: "0.8rem", color: "#9ca3af" }}>
             Accedé a tu constructor de landing.
           </p>
         </div>
 
-        <form onSubmit={handleSubmit} className="space-y-4">
-          <div className="space-y-1">
+        <form
+          onSubmit={handleSubmit}
+          style={{ display: "flex", flexDirection: "column", gap: "0.9rem" }}
+        >
+          <div style={{ display: "flex", flexDirection: "column", gap: "0.2rem" }}>
             <label
               htmlFor="username"
-              className="block text-xs font-medium text-gray-200"
+              style={{
+                fontSize: "0.75rem",
+                fontWeight: 500,
+                color: "#e5e7eb"
+              }}
             >
               Usuario
             </label>
@@ -61,15 +99,28 @@ export default function LoginPage() {
               autoComplete="username"
               value={username}
               onChange={(e) => setUsername(e.target.value)}
-              className="block w-full rounded-md border border-gray-700 bg-gray-900/70 px-3 py-2 text-sm text-gray-100 outline-none ring-cyan-500/60 focus:ring-1"
               placeholder="cliente1"
+              style={{
+                width: "100%",
+                borderRadius: "0.5rem",
+                border: "1px solid #4b5563",
+                backgroundColor: "#020617",
+                padding: "0.5rem 0.75rem",
+                fontSize: "0.85rem",
+                color: "#f9fafb",
+                outline: "none"
+              }}
             />
           </div>
 
-          <div className="space-y-1">
+          <div style={{ display: "flex", flexDirection: "column", gap: "0.2rem" }}>
             <label
               htmlFor="password"
-              className="block text-xs font-medium text-gray-200"
+              style={{
+                fontSize: "0.75rem",
+                fontWeight: 500,
+                color: "#e5e7eb"
+              }}
             >
               Contraseña
             </label>
@@ -79,25 +130,62 @@ export default function LoginPage() {
               autoComplete="current-password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
-              className="block w-full rounded-md border border-gray-700 bg-gray-900/70 px-3 py-2 text-sm text-gray-100 outline-none ring-cyan-500/60 focus:ring-1"
               placeholder="••••"
+              style={{
+                width: "100%",
+                borderRadius: "0.5rem",
+                border: "1px solid #4b5563",
+                backgroundColor: "#020617",
+                padding: "0.5rem 0.75rem",
+                fontSize: "0.85rem",
+                color: "#f9fafb",
+                outline: "none"
+              }}
             />
           </div>
 
           {error && (
-            <p className="text-xs font-medium text-red-400">{error}</p>
+            <p
+              style={{
+                fontSize: "0.75rem",
+                fontWeight: 500,
+                color: "#f97373"
+              }}
+            >
+              {error}
+            </p>
           )}
 
           <button
             type="submit"
-            className="mt-2 inline-flex w-full items-center justify-center rounded-md bg-cyan-600 px-4 py-2.5 text-sm font-semibold text-white shadow-md transition hover:bg-cyan-500 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-500 focus-visible:ring-offset-2 focus-visible:ring-offset-black"
+            style={{
+              marginTop: "0.4rem",
+              width: "100%",
+              borderRadius: "0.6rem",
+              border: "none",
+              padding: "0.55rem 0.75rem",
+              fontSize: "0.9rem",
+              fontWeight: 600,
+              color: "#ffffff",
+              background:
+                "linear-gradient(135deg, #22d3ee 0%, #0ea5e9 50%, #0f766e 100%)",
+              boxShadow: "0 12px 30px rgba(56,189,248,0.45)",
+              cursor: "pointer"
+            }}
           >
             Ingresar
           </button>
 
-          <p className="mt-3 text-[11px] text-gray-500">
-            Mock de ejemplo: <strong>cliente1 / 1234</strong> o{" "}
-            <strong>cliente2 / abcd</strong>.
+          <p
+            style={{
+              marginTop: "0.6rem",
+              fontSize: "0.7rem",
+              color: "#9ca3af"
+            }}
+          >
+            Mock de ejemplo:{" "}
+            <strong style={{ color: "#e5e7eb" }}>cliente1 / 1234</strong> o{" "}
+            <strong style={{ color: "#e5e7eb" }}>cliente2 / abcd</strong>.
           </p>
         </form>
       </div>
